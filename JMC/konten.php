@@ -202,7 +202,7 @@ echo	'<!-- Feature section -->
 	
 }
 
-//bagian user
+//bagian berita
 elseif ($_GET['modul']=='news') {
 	include "modul/news.php";
 }

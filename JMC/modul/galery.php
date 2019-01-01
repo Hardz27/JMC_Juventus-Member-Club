@@ -1,27 +1,33 @@
 <?php
 	include "../include/koneksi.php";
-echo '	
+?>
 
 	<!-- Review section -->
 	<section class="review-section review-dark spad set-bg" data-setbg="images/review-bg-2.jpg">
 		<div class="container">
 			<div class="section-title text-white">
-				<div class="cata new">new</div>
-				<h2>Recent Reviews</h2>
+				<div class="cata new">Galery</div>
+				<h2>Galery and Juventus Museum</h2>
 			</div>
 			<div class="row text-white">
+				<?php
+				$galery=mysqli_query($koneksi, "SELECT * FROM galeri");
+				  while ($data=mysqli_fetch_array($galery)) {
+				?>
 				<div class="col-lg-3 col-md-6">
 					<div class="review-item">
-						<div class="review-cover set-bg" data-setbg="images/review/1.jpg">
-							<div class="score yellow">9.3</div>
+						<div class="review-cover set-bg" data-setbg="images/museum/<?php echo $data['gambar']?>">
+							<div class="cata News">Museum</div>
 						</div>
 						<div class="review-text">
-							<h5>Assasin’’s Creed</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit ame.</p>
+							<p><?php echo $data['caption']?></p>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-6">
+				<?php
+				}
+				?>
+				<!-- <div class="col-lg-3 col-md-6">
 					<div class="review-item">
 						<div class="review-cover set-bg" data-setbg="images/review/2.jpg">
 							<div class="score purple">9.5</div>
@@ -79,9 +85,8 @@ echo '
 							<p>Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit ame.</p>
 						</div>
 					</div>
-				</div>
+				</div> -->				
 			</div>
 		</div>
 	</section>
 	<!-- Review section end -->';
-?>
